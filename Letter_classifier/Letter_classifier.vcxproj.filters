@@ -21,9 +21,15 @@
     <ClCompile Include="data_load.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="classifier.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="data_load.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="classifier.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
