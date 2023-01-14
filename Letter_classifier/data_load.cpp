@@ -295,6 +295,9 @@ dataset load_dataset()
         DATASET.close();
     }
 
+    LETTERS.letters_number = 5;
+    LETTERS.immage_size = 50;
+
     return LETTERS;
 }
 
