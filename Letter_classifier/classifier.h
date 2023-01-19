@@ -19,12 +19,15 @@ public:
 class classifier
 {
 public:
-	classifier(int numder_of_layers, std::initializer_list<int> sizes, double _learning_rate);
+	classifier(int numder_of_layers, std::initializer_list<int> sizes, double _learning_rate, double _initial_weights_range);
 	void selection_load(dataset data);
 	void loop(std::vector<int>::iterator immage);
 	void train_loop(int learning_vector_number);
+	void learn();
+	void test(int learning_vector_number);
 private:
 	double learning_rate = 0;
+	double initial_weights_range = 1;
 	int layer_quantity = 0;
 	std::vector<int> layer_sizes;
 	std::vector<std::vector<std::vector<double>>> weights;

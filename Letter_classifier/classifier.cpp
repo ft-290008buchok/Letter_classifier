@@ -1,8 +1,9 @@
 #include "classifier.h"
 
-classifier::classifier(int numder_of_layers, std::initializer_list<int> sizes, double _learning_rate)
+classifier::classifier(int numder_of_layers, std::initializer_list<int> sizes, double _learning_rate, double _initial_weights_range)
 {
     learning_rate = _learning_rate;
+    initial_weights_range = _initial_weights_range;
     layer_quantity = numder_of_layers;
     for (auto size : sizes)
         layer_sizes.push_back(size);
@@ -12,7 +13,7 @@ classifier::classifier(int numder_of_layers, std::initializer_list<int> sizes, d
         std::vector<std::vector<double>> matrix(layer_sizes[i], std::vector<double>(layer_sizes[i + 1], 0));
         for (int j = 0; j < layer_sizes[i]; j++)
             for (int k = 0; k < layer_sizes[i + 1]; k++)
-                matrix[j][k] = math_random();
+                matrix[j][k] = math_random() * initial_weights_range;
 
         weights.push_back(matrix);
     }
@@ -61,9 +62,6 @@ void classifier::loop(std::vector<int>::iterator immage)
             layers[n][i].activate();
         }
     }
-
-    for (int i = 0; i < layer_sizes[0]; i++)
-        printf("%d  %f\n", i, layers[0][i].out);
 
 }
 
@@ -120,12 +118,58 @@ void classifier::train_loop(int learning_vector_number)
         im[k] = DATA.data[i];
 
     loop(im.begin());
+    for (int i = 0; i < layer_sizes[0]; i++)
+        printf("%d  %f\n", i, layers[0][i].out);
     _calc_error_function(learning_vector_number);
     std::cout << error_value << std::endl;
     _calc_amendments(learning_vector_number);
     _apply_amendments();
 
     loop(im.begin());
+    for (int i = 0; i < layer_sizes[0]; i++)
+        printf("%d  %f\n", i, layers[0][i].out);
+    _calc_error_function(learning_vector_number);
+    std::cout << error_value << std::endl;
+}
+
+void classifier::learn()
+{
+    std::cout << "Learning...\n\n";
+
+    std::vector<int> numbers(DATA.letters_number * DATA.size_for_one_letter, 0);
+    for (int n = 0; n < DATA.letters_number * DATA.size_for_one_letter; n++)
+        numbers[n] = n;
+
+    
+
+    std::vector<int> im(DATA.immage_size, 0);
+    for (int iter = 0; iter < 1; iter++)
+    {
+        for (int n = 0; n < DATA.letters_number * DATA.size_for_one_letter; n++)
+            std::swap(numbers[n], numbers[rand() % (DATA.letters_number * DATA.size_for_one_letter)]);
+
+        for (int n = 0; n < DATA.letters_number * DATA.size_for_one_letter; n++)
+        {
+            for (int i = numbers[n] * DATA.immage_size, k = 0; i < (numbers[n] + 1) * DATA.immage_size; i++, k++)
+                im[k] = DATA.data[i];
+
+            loop(im.begin());
+            _calc_error_function(numbers[n]);
+            _calc_amendments(numbers[n]);
+            _apply_amendments();
+        }
+    }
+}
+
+void classifier::test(int learning_vector_number)
+{
+    std::vector<int> im(DATA.immage_size, 0);
+    for (int i = learning_vector_number * DATA.immage_size, k = 0; i < (learning_vector_number + 1) * DATA.immage_size; i++, k++)
+        im[k] = DATA.data[i];
+
+    loop(im.begin());
+    for (int i = 0; i < layer_sizes[0]; i++)
+        printf("%d  %f\n", i, layers[0][i].out);
     _calc_error_function(learning_vector_number);
     std::cout << error_value << std::endl;
 }
