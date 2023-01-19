@@ -298,6 +298,19 @@ dataset load_dataset()
     LETTERS.letters_number = 5;
     LETTERS.immage_size = 50;
 
+    LETTERS.marks = std::vector<std::vector<int>>(LETTERS.letters_number * LETTERS.size_for_one_letter, std::vector<int>(LETTERS.letters_number, 0));
+    int n = 0;
+    
+    for (int i = 0; i < LETTERS.letters_number; i++)
+    {
+        for (int j = 0; j < LETTERS.size_for_one_letter; j++, n++)
+        {
+            std::vector<int> mark(LETTERS.letters_number, 0);
+            mark[i] = 1;
+            LETTERS.marks[n] = mark;
+        }
+    }
+
     return LETTERS;
 }
 

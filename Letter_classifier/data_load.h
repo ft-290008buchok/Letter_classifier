@@ -13,6 +13,7 @@ public:
     int size_for_one_letter;
     int letters_number;
     int immage_size;
+    std::vector<std::vector<int>> marks;
 };
 
 dataset load_dataset();

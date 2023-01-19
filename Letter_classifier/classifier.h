@@ -27,8 +27,12 @@ private:
 	int layer_quantity = 0;
 	std::vector<int> layer_sizes;
 	std::vector<std::vector<std::vector<double>>> weights;
+	std::vector<std::vector<std::vector<double>>> amendments;
 	std::vector<std::vector<neuron>> layers;
 	dataset DATA;
+	double error_value = 0;
+	void _calc_amendments(int learning_vector_number);
+	void _calc_error_function(int learning_vector_number);
 };
 
 int generate(int, int);
