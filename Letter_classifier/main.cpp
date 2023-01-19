@@ -6,7 +6,7 @@ using namespace sf;
 int main()
 {
     srand(time(NULL));
-    classifier cl(4, { 5, 100, 1000, 2500 }, 0.1);
+    classifier cl(4, { 5, 100, 1000, 2500 }, 10000000.9);
 
     dataset DATA = load_dataset();
     //for (int i = 0; i < DATA.size_for_one_letter * 5 * 50 * 50; i++)
@@ -14,10 +14,7 @@ int main()
 
     cl.selection_load(DATA);
 
-    std::vector<int> im(2500, 0);
-    for (int i = 0; i < 2500; i++)
-        im[i] = DATA.data[i];
-    cl.loop(im.begin());
+    cl.train_loop(20);
     return 0;
 }
 

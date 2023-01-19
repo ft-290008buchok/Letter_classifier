@@ -296,7 +296,7 @@ dataset load_dataset()
     }
 
     LETTERS.letters_number = 5;
-    LETTERS.immage_size = 50;
+    LETTERS.immage_size = 2500;
 
     LETTERS.marks = std::vector<std::vector<int>>(LETTERS.letters_number * LETTERS.size_for_one_letter, std::vector<int>(LETTERS.letters_number, 0));
     int n = 0;

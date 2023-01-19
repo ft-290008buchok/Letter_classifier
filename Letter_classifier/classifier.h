@@ -22,6 +22,7 @@ public:
 	classifier(int numder_of_layers, std::initializer_list<int> sizes, double _learning_rate);
 	void selection_load(dataset data);
 	void loop(std::vector<int>::iterator immage);
+	void train_loop(int learning_vector_number);
 private:
 	double learning_rate = 0;
 	int layer_quantity = 0;
@@ -33,6 +34,7 @@ private:
 	double error_value = 0;
 	void _calc_amendments(int learning_vector_number);
 	void _calc_error_function(int learning_vector_number);
+	void _apply_amendments();
 };
 
 int generate(int, int);

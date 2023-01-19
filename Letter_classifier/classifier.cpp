@@ -105,6 +105,31 @@ void classifier::_calc_amendments(int learning_vector_number)
                 amendments[n][i][j] = layers[n + 1][j].out * derivatives_by_s[n][i];
 }
 
+void classifier::_apply_amendments()
+{
+    for (int n = 0; n < layer_quantity - 1; n++)
+        for (int i = 0; i < layer_sizes[n]; i++)
+            for (int j = 0; j < layer_sizes[n + 1]; j++)
+                weights[n][i][j] -= learning_rate * amendments[n][i][j];
+}
+
+void classifier::train_loop(int learning_vector_number)
+{
+    std::vector<int> im(DATA.immage_size, 0);
+    for (int i = learning_vector_number * DATA.immage_size, k = 0; i < (learning_vector_number + 1) * DATA.immage_size; i++, k++)
+        im[k] = DATA.data[i];
+
+    loop(im.begin());
+    _calc_error_function(learning_vector_number);
+    std::cout << error_value << std::endl;
+    _calc_amendments(learning_vector_number);
+    _apply_amendments();
+
+    loop(im.begin());
+    _calc_error_function(learning_vector_number);
+    std::cout << error_value << std::endl;
+}
+
 int generate(int left_border, int right_border)
 {
     return left_border + rand() % (right_border - left_border + 1);
