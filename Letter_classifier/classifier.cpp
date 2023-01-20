@@ -48,7 +48,7 @@ void classifier::selection_load(dataset data)
     DATA = data;
 }
 
-void classifier::loop(std::vector<int>::iterator immage)
+void classifier::_loop(std::vector<int>::iterator immage)
 {
     for (int i = 0; i < layer_sizes[layer_quantity - 1]; i++)
         layers[layer_quantity - 1][i].out = (double)immage[i];
@@ -63,7 +63,6 @@ void classifier::loop(std::vector<int>::iterator immage)
             layers[n][i].activate();
         }
     }
-
 }
 
 void classifier::_calc_error_function(int learning_vector_number)
@@ -118,7 +117,7 @@ void classifier::train_loop(int learning_vector_number)
     for (int i = learning_vector_number * DATA.immage_size, k = 0; i < (learning_vector_number + 1) * DATA.immage_size; i++, k++)
         im[k] = DATA.data[i];
 
-    loop(im.begin());
+    _loop(im.begin());
     for (int i = 0; i < layer_sizes[0]; i++)
         printf("%d  %f\n", i, layers[0][i].out);
     _calc_error_function(learning_vector_number);
@@ -126,7 +125,7 @@ void classifier::train_loop(int learning_vector_number)
     _calc_amendments(learning_vector_number);
     _apply_amendments();
 
-    loop(im.begin());
+    _loop(im.begin());
     for (int i = 0; i < layer_sizes[0]; i++)
         printf("%d  %f\n", i, layers[0][i].out);
     _calc_error_function(learning_vector_number);
@@ -144,7 +143,7 @@ void classifier::learn()
     std::vector<int> im(DATA.immage_size, 0);
     for (int iter = 0; iter < learning_iterations_num; iter++)
     {
-        std::vector<std::vector<std::vector<std::vector<double>>>> amendments_by_batch;
+        //std::vector<std::vector<std::vector<std::vector<double>>>> amendments_by_batch;
 
         for (int n = 0; n < DATA.letters_number * DATA.size_for_one_letter; n++)
             std::swap(numbers[n], numbers[rand() % (DATA.letters_number * DATA.size_for_one_letter)]);
@@ -154,7 +153,7 @@ void classifier::learn()
             for (int i = numbers[n] * DATA.immage_size, k = 0; i < (numbers[n] + 1) * DATA.immage_size; i++, k++)
                 im[k] = DATA.data[i];
 
-            loop(im.begin());
+            _loop(im.begin());
             _calc_error_function(numbers[n]);
             _calc_amendments(numbers[n]);
             //amendments_by_batch.push_back(amendments);
@@ -185,7 +184,7 @@ bool classifier::_test(int learning_vector_number)
     int max_num = 0;
     double max_value = 0;
 
-    loop(im.begin());
+    _loop(im.begin());
     for (int i = 0; i < layer_sizes[0]; i++)
         if (layers[0][i].out > max_value)
         {
@@ -217,6 +216,23 @@ void classifier::accuracy_test_on_dataset()
     }
 
     printf("\nAccuracy on dataset = %f\n\n", (double)recognized / (double)all);
+}
+
+int classifier::classify(std::vector<int>::iterator immage)
+{
+    _loop(immage);
+
+    int max_num = 0;
+    double max_value = 0;
+
+    for (int i = 0; i < layer_sizes[0]; i++)
+        if (layers[0][i].out > max_value)
+        {
+            max_value = layers[0][i].out;
+            max_num = i;
+        }
+
+    return max_num;
 }
 
 int generate(int left_border, int right_border)
