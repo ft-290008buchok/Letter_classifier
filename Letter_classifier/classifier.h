@@ -24,7 +24,7 @@ public:
 	void loop(std::vector<int>::iterator immage);
 	void train_loop(int learning_vector_number);
 	void learn();
-	void test(int learning_vector_number);
+	void accuracy_test_on_dataset();
 private:
 	double learning_rate = 0;
 	double initial_weights_range = 1;
@@ -38,6 +38,7 @@ private:
 	void _calc_amendments(int learning_vector_number);
 	void _calc_error_function(int learning_vector_number);
 	void _apply_amendments();
+	bool _test(int learning_vector_number);
 };
 
 int generate(int, int);

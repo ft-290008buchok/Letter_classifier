@@ -6,20 +6,18 @@ using namespace sf;
 int main()
 {
     srand(time(NULL));
-    classifier cl(4, { 5, 50, 500, 2500 }, 0.07, 0.1);
+    classifier cl(4, { 5, 50, 500, 2500 }, 1.5, 1.0);
 
     dataset DATA = load_dataset();
 
     cl.selection_load(DATA);
 
-    //cl.train_loop(1);
-
+    //cl.train_loop(31);
+    
     cl.learn();
 
-    cl.test(20);
-
+    cl.accuracy_test_on_dataset();
     
-
     return 0;
 }
 
