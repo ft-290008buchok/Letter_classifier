@@ -1,10 +1,11 @@
 #include "classifier.h"
 
-classifier::classifier(int numder_of_layers, std::initializer_list<int> sizes, double _learning_rate, double _initial_weights_range)
+classifier::classifier(int numder_of_layers, std::initializer_list<int> sizes, double _learning_rate, double _initial_weights_range, int _learning_iterations_num)
 {
     learning_rate = _learning_rate;
     initial_weights_range = _initial_weights_range;
     layer_quantity = numder_of_layers;
+    learning_iterations_num = _learning_iterations_num;
     for (auto size : sizes)
         layer_sizes.push_back(size);
 
@@ -141,7 +142,7 @@ void classifier::learn()
         numbers[n] = n;
 
     std::vector<int> im(DATA.immage_size, 0);
-    for (int iter = 0; iter < 60; iter++)
+    for (int iter = 0; iter < learning_iterations_num; iter++)
     {
         std::vector<std::vector<std::vector<std::vector<double>>>> amendments_by_batch;
 
@@ -156,9 +157,10 @@ void classifier::learn()
             loop(im.begin());
             _calc_error_function(numbers[n]);
             _calc_amendments(numbers[n]);
-            amendments_by_batch.push_back(amendments);
+            //amendments_by_batch.push_back(amendments);
+            _apply_amendments();
         }
-
+        /*
         for (int n = 0; n < layer_quantity - 1; n++)
             for (int i = 0; i < layer_sizes[n]; i++)
                 for (int j = 0; j < layer_sizes[n + 1]; j++)
@@ -168,8 +170,8 @@ void classifier::learn()
                         amendments[n][i][j] += amendments_by_batch[data_num][n][i][j];
                     amendments[n][i][j] /= (double)(DATA.letters_number * DATA.size_for_one_letter);
                 }
-
-        _apply_amendments();
+                */
+        //_apply_amendments();
     }
 }
 

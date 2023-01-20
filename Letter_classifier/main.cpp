@@ -6,7 +6,7 @@ using namespace sf;
 int main()
 {
     srand(time(NULL));
-    classifier cl(4, { 5, 50, 500, 2500 }, 1.5, 1.0);
+    classifier cl(4, { 5, 50, 500, 2500 }, 1.5, 1.0, 4);
 
     dataset DATA = load_dataset();
 
