@@ -21,7 +21,6 @@ class classifier
 public:
 	classifier(int numder_of_layers, std::initializer_list<int> sizes, double _learning_rate, double _initial_weights_range, int _learning_iterations_num);
 	void selection_load(dataset data);
-	
 	void train_loop(int learning_vector_number);
 	void learn();
 	void accuracy_test_on_dataset();

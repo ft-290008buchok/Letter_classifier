@@ -24,12 +24,18 @@
     <ClCompile Include="classifier.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="testing.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="data_load.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="classifier.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="testing.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

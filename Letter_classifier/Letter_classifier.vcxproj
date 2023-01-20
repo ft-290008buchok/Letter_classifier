@@ -133,10 +133,12 @@
     <ClCompile Include="classifier.cpp" />
     <ClCompile Include="data_load.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="testing.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="classifier.h" />
     <ClInclude Include="data_load.h" />
+    <ClInclude Include="testing.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
