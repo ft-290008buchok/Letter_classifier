@@ -1,5 +1,5 @@
 # Классификатор рукописных букв на основе нейронной сети на C++
-![<neural network>](https://img.shields.io/badge/<neural network>-<black>?style=for-the-badge&logo=<Icon Name>&logoColor=<white>)
+![neural network](https://img.shields.io/badge/-?style=for-the-badge&logo=&logoColor=white)
 
 
 В этом проекте реализован классификатор рукописных букв. Для классификации используется нейронная сеть прямого распространения, обучение происходит по алгоритму обратного распространения ошибки.
