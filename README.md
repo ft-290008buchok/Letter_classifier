@@ -27,12 +27,12 @@
 Для классификации используется нейронная сеть прямого распространения. Перцептрон имеет 4 слоя, размеры входного, первого скрытого, второго скрытого и выходного слоёв равны 2500, 500, 50 и 5 соответственно.
 Вид функции активации - сигмоида. Вид функции ошибки - среднеквадратичное отклонение. Алгоритм обучения - метод обратного распространения ошибки.
 
-    layer number = 4
-    input layer size = 2500
+    layer number =        4
+    input layer size =    2500
     hidden layers sizes = {500, 50}
-    output layer size = 5
-    activation function: f(s) = (1 + e^(-a * s))^(-1), a = 0.3
-    error function: (x1 - t1)^2 + ... + (xn - tn)^2, x - output layer neuron out, t - output reference value, n = 5
+    output layer size =   5
+    activation function:  f(s) = (1 + e^(-a * s))^(-1), a = 0.3
+    error function:       (x1 - t1)^2 + ... + (xn - tn)^2, x - output layer neuron out, t - output reference value, n = 5
   
 # Модуль нейросети classifier
 Представляет из себя мини frame work для создания и обучения нейросети методом обратного распространения ошибки для языка C++.
