@@ -30,17 +30,6 @@ classifier::classifier(int numder_of_layers, std::initializer_list<int> sizes, d
         std::vector<neuron> layer(layer_sizes[i]);
         layers.push_back(layer);
     }
-    /*
-    for (int n = 0; n < layer_quantity - 1; n++)
-    {
-        for (int i = 0; i < layer_sizes[n]; i++)
-        {
-            for (int j = 0; j < layer_sizes[n + 1]; j++)
-                printf("%f  ", weights[n][i][j]);
-            std::cout << std::endl;
-        }
-    }
-    */
 }
 
 void classifier::selection_load(dataset data)
