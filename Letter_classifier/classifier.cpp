@@ -132,8 +132,6 @@ void classifier::learn()
     std::vector<int> im(DATA.immage_size, 0);
     for (int iter = 0; iter < learning_iterations_num; iter++)
     {
-        //std::vector<std::vector<std::vector<std::vector<double>>>> amendments_by_batch;
-
         for (int n = 0; n < DATA.letters_number * DATA.size_for_one_letter; n++)
             std::swap(numbers[n], numbers[rand() % (DATA.letters_number * DATA.size_for_one_letter)]);
 
@@ -145,21 +143,8 @@ void classifier::learn()
             _loop(im.begin());
             _calc_error_function(numbers[n]);
             _calc_amendments(numbers[n]);
-            //amendments_by_batch.push_back(amendments);
             _apply_amendments();
         }
-        /*
-        for (int n = 0; n < layer_quantity - 1; n++)
-            for (int i = 0; i < layer_sizes[n]; i++)
-                for (int j = 0; j < layer_sizes[n + 1]; j++)
-                {
-                    amendments[n][i][j] = 0;
-                    for (int data_num = 0; data_num < DATA.letters_number * DATA.size_for_one_letter; data_num++)
-                        amendments[n][i][j] += amendments_by_batch[data_num][n][i][j];
-                    amendments[n][i][j] /= (double)(DATA.letters_number * DATA.size_for_one_letter);
-                }
-                */
-        //_apply_amendments();
     }
 }
 
