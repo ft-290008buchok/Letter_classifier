@@ -17,7 +17,7 @@
     activation function:  f(s) = (1 + e^(-a * s))^(-1), a = 0.4
     error function:       (x1 - t1)^2 + ... + (xn - tn)^2, x - output layer neuron out, t - output reference value, n = 5
     learning rate = 1.0
-    epochs number = 8
+    number of epochs = 8
   
 # Точность
 После обучения на дата сете из 75 латинских букв A, B, C, D, E (по 15 на каждый класс) и тестирования на выбрке из 25 букв (по 5 на каждый класс):
