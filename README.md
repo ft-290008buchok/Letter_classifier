@@ -10,14 +10,15 @@
 Для классификации используется нейронная сеть прямого распространения. Перцептрон имеет 4 слоя, размеры входного, первого скрытого, второго скрытого и выходного слоёв равны 2500, 500, 50 и 5 соответственно.
 Вид функции активации - сигмоида. Вид функции ошибки - среднеквадратичное отклонение. Алгоритм обучения - метод обратного распространения ошибки. Вид градиентного спуска - стохастический градиентный спуск.
 
-    layer number =        4
-    input layer size =    2500
-    hidden layers sizes = {500, 50}
-    output layer size =   5
-    activation function:  f(s) = (1 + e^(-a * s))^(-1), a = 0.4
-    error function:       (x1 - t1)^2 + ... + (xn - tn)^2, x - output layer neuron out, t - output reference value, n = 5
-    learning rate = 1.0
-    number of epochs = 8
+    layer number =            4
+    input layer size =        2500
+    hidden layers sizes =     {500, 50}
+    output layer size =       5
+    activation function:      f(s) = (1 + e^(-a * s))^(-1), a = 0.4
+    error function:           (x1 - t1)^2 + ... + (xn - tn)^2, x - output layer neuron out, t - output reference value, n = 5
+    learning rate =           1.0
+    number of epochs =        8
+    type of gradient descent: stochastic gradient descent
   
 # Точность
 После обучения на дата сете из 75 латинских букв A, B, C, D, E (по 15 на каждый класс) и тестирования на выбрке из 25 букв (по 5 на каждый класс):
