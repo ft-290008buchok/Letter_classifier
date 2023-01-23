@@ -14,7 +14,7 @@
     input layer size =    2500
     hidden layers sizes = {500, 50}
     output layer size =   5
-    activation function:  f(s) = (1 + e^(-a * s))^(-1), a = 0.3
+    activation function:  f(s) = (1 + e^(-a * s))^(-1), a = 0.4
     error function:       (x1 - t1)^2 + ... + (xn - tn)^2, x - output layer neuron out, t - output reference value, n = 5
     learning rate = 1.0
     epochs number = 8
