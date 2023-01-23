@@ -145,6 +145,7 @@ void classifier::learn()
             _calc_amendments(numbers[n]);
             _apply_amendments();
         }
+        learning_rate *= 0.9;
     }
 }
 

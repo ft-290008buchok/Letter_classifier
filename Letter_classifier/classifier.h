@@ -1,6 +1,6 @@
 #pragma once
 
-const double steepness = 0.3;
+const double steepness = 0.4;
 
 #include<iostream>
 #include<vector>
