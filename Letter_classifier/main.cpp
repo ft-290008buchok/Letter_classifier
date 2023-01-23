@@ -7,7 +7,7 @@ using namespace sf;
 int main()
 {
     srand(time(NULL));
-
+    
     classifier cl(4, { 5, 50, 500, 2500 }, 1.0, 1.0, 8);
 
     dataset LEARNING_DATA = load_dataset();
