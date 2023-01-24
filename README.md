@@ -94,3 +94,5 @@ After the training sample is loaded, the images of the letters are compressed to
 ![Screenshot 20-01-2023 220533](https://user-images.githubusercontent.com/71639489/213845135-fb501502-17f0-45cb-a42a-ac1ee3eb8cc7.jpg)
 
 You will be asked to save the date set in memory in case next time you want to save time on creating it. Then the neural network will be trained by the method of back propagation of the error. After that, you will also be asked to draw a few test examples for each letter with your mouse. After loading the test sample, it will be passed through a trained neural network and you will see an assessment of the accuracy of the classification of your test letters.
+# 
+We all need support and motivation. TryShape is not an exception. Please give this project a ⭐️ to encourage and show that you liked it. Don't forget to leave a star ⭐️ before you move away.
