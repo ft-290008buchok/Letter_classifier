@@ -1,11 +1,12 @@
 #include "classifier.h"
 
-classifier::classifier(int numder_of_layers, std::initializer_list<int> sizes, double _learning_rate, double _initial_weights_range, int _learning_iterations_num)
+classifier::classifier(int numder_of_layers, std::initializer_list<int> sizes, double _learning_rate, double _initial_weights_range, int _learning_iterations_num, double _sigmoid_steepness)
 {
     learning_rate = _learning_rate;
     initial_weights_range = _initial_weights_range;
     layer_quantity = numder_of_layers;
     learning_iterations_num = _learning_iterations_num;
+    sigmoid_steepness = _sigmoid_steepness;
     for (auto size : sizes)
         layer_sizes.push_back(size);
 
@@ -49,7 +50,7 @@ void classifier::_loop(std::vector<int>::iterator immage)
             layers[n][i].s = 0;
             for (int j = 0; j < layer_sizes[n + 1]; j++)
                 layers[n][i].s += layers[n + 1][j].out * weights[n][i][j];
-            layers[n][i].activate();
+            layers[n][i].activate(sigmoid_steepness);
         }
     }
 }
@@ -67,7 +68,7 @@ void classifier::_calc_amendments(int learning_vector_number)
 
     std::vector<double> first_layer_derivatives_by_s(layer_sizes[0]);
     for (int i = 0; i < layer_sizes[0]; i++)
-        first_layer_derivatives_by_s[i] = steepness * pow(M_E, -layers[0][i].s * steepness) / pow((1 + pow(M_E, -layers[0][i].s * steepness)), 2)    *    2 * (layers[0][i].out - DATA.marks[learning_vector_number][i]);
+        first_layer_derivatives_by_s[i] = sigmoid_steepness * pow(M_E, -layers[0][i].s * sigmoid_steepness) / pow((1 + pow(M_E, -layers[0][i].s * sigmoid_steepness)), 2)    *    2 * (layers[0][i].out - DATA.marks[learning_vector_number][i]);
 
     derivatives_by_s.push_back(first_layer_derivatives_by_s);
     
@@ -81,7 +82,7 @@ void classifier::_calc_amendments(int learning_vector_number)
             for (int j = 0; j < layer_sizes[n - 1]; j++)
                 summ += derivatives_by_s[n - 1][j] * weights[n - 1][j][i];
 
-            current_layer_derivatives_by_s[i] = steepness * pow(M_E, -layers[n][i].s * steepness) / pow((1 + pow(M_E, -layers[n][i].s * steepness)), 2) * summ;
+            current_layer_derivatives_by_s[i] = sigmoid_steepness * pow(M_E, -layers[n][i].s * sigmoid_steepness) / pow((1 + pow(M_E, -layers[n][i].s * sigmoid_steepness)), 2) * summ;
         }
         derivatives_by_s.push_back(current_layer_derivatives_by_s);
     }

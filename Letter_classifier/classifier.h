@@ -1,7 +1,5 @@
 #pragma once
 
-const double steepness = 0.4;
-
 #include<iostream>
 #include<vector>
 #include<ctime>
@@ -13,13 +11,13 @@ class neuron
 public:
 	double s = 0;
 	double out = 0;
-	void activate(){ out = 1.0 / (1.0 + pow(M_E, -s * steepness)); }
+	void activate(double sigmoid_steepness){ out = 1.0 / (1.0 + pow(M_E, -s * sigmoid_steepness)); }
 };
 
 class classifier
 {
 public:
-	classifier(int numder_of_layers, std::initializer_list<int> sizes, double _learning_rate, double _initial_weights_range, int _learning_iterations_num);
+	classifier(int numder_of_layers, std::initializer_list<int> sizes, double _learning_rate, double _initial_weights_range, int _learning_iterations_num, double _sigmoid_steepness);
 	void selection_load(dataset data);
 	void train_loop(int learning_vector_number);
 	void learn();
@@ -28,6 +26,7 @@ public:
 private:
 	double learning_rate = 0;
 	double initial_weights_range = 0;
+	double sigmoid_steepness = 0.4;
 	int layer_quantity = 0;
 	int learning_iterations_num = 0;
 	std::vector<int> layer_sizes;
