@@ -38,7 +38,7 @@ It is a mini frame work for creating and training a neural network by the method
 
 The classifier module is designed for designing a neural network with any number of layers of any size and can be used in other projects.You can find the header file and the classifier implementation file in the project files.
 
-The classifier constructor accepts several parameters: 
+The classifier constructor accepts several parameters:   
 1 - number of layers   
 2 - list with the sizes of layers starting from the output and ending with the input   
 3 - learning rate (step of gradient descent)   
