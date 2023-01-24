@@ -33,7 +33,7 @@ The type of activation function is a sigmoid. The type of error function is the 
 After training on a data set of 75 Latin letters A, B, C, D, E (15 for each class) and testing on a sample of 25 letters (5 for each class):
 
     Classification of the training sample - accuracy 100 %
-Classification of the test sample - accuracy 92 %
+    Classification of the test sample - accuracy 92 %
 
 
 # Classifier neural network module
