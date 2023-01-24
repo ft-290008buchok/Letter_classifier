@@ -1,3 +1,5 @@
+<img width="957" alt="logo — копия" src="https://user-images.githubusercontent.com/71639489/214234066-751129f5-aaa7-465a-bf73-497f8910fcd7.png">
+
 # A handwritten letter classifier based on a neural network in C++
 ![neural network](https://img.shields.io/badge/neuralnetwork-000000?style=for-the-badge&logo=&logoColor=white)
 ![neural network](https://img.shields.io/badge/errorBackPropagation-000000?style=for-the-badge&logo=&logoColor=white)
