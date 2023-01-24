@@ -1,14 +1,20 @@
-# Классификатор рукописных букв на основе нейронной сети на C++
+# A handwritten letter classifier based on a neural network in C++
 ![neural network](https://img.shields.io/badge/neuralnetwork-000000?style=for-the-badge&logo=&logoColor=white)
 ![neural network](https://img.shields.io/badge/errorBackPropagation-000000?style=for-the-badge&logo=&logoColor=white)
 ![neural network](https://img.shields.io/badge/c++-000000?style=for-the-badge&logo=&logoColor=white)
 
 
-В этом проекте реализован классификатор рукописных букв. Для классификации используется нейронная сеть прямого распространения, обучение происходит по алгоритму обратного распространения ошибки.
+In this project, a classifier of handwritten letters is implemented. For classification, a neural network of direct propagation is used, training takes place according to the algorithm of error back propagation.
 
-# Характеристики нейронной сети
-Для классификации используется нейронная сеть прямого распространения. Перцептрон имеет 4 слоя, размеры входного, первого скрытого, второго скрытого и выходного слоёв равны 2500, 500, 50 и 5 соответственно.
-Вид функции активации - сигмоида. Вид функции ошибки - среднеквадратичное отклонение. Алгоритм обучения - метод обратного распространения ошибки. Вид градиентного спуска - стохастический градиентный спуск.
+# Content
+⭘ Neural Network Characteristics   
+⭘ Accuracy   
+⭘ Neural network module classifier   
+⭘ Project launch   
+
+# Neural Network Characteristics
+A direct propagation neural network is used for classification. The perceptron has 4 layers, the sizes of the input, first hidden, second hidden and output layers are 2500, 500, 50 and 5, respectively.
+The type of activation function is a sigmoid. The type of error function is the standard deviation. The learning algorithm is a method of error back propagation. The type of gradient descent is stochastic gradient descent.
 
     layer number =            4
     input layer size =        2500
@@ -20,31 +26,31 @@
     number of epochs =        8
     type of gradient descent: stochastic gradient descent
   
-# Точность
-После обучения на дата сете из 75 латинских букв A, B, C, D, E (по 15 на каждый класс) и тестирования на выбрке из 25 букв (по 5 на каждый класс):
+# Accuracy
+After training on a data set of 75 Latin letters A, B, C, D, E (15 for each class) and testing on a sample of 25 letters (5 for each class):
 
-    Классификация обучающей выборки - точность 100 %
-    Классификация тестовой выборки - точность 92 %
+    Classification of the training sample - accuracy 100 %
+Classification of the test sample - accuracy 92 %
 
 
-# Модуль нейросети classifier
-Представляет из себя мини frame work для создания и обучения нейросети методом обратного распространения ошибки со стохастическим градиентным спуском для языка C++.
+# Classifier neural network module
+It is a mini frame work for creating and training a neural network by the method of error back propagation with stochastic gradient descent for the C++ language.
 
-Модуль classifier рассчитан на проектирование нейросети с любым количеством слоёв любого размера и может быть использован в других проектах.Файл заголовка и файл реализации classifier вы можете найти в файлах проекта.
+The classifier module is designed for designing a neural network with any number of layers of any size and can be used in other projects.You can find the header file and the classifier implementation file in the project files.
 
-Конструктор classifier принимает несколько параметров: 
-1 - количество слоёв
-2 - list с размерами слоёв начиная с выходного и заканчивая входным
-3 - learning rate (шаг градиентного спуска)
-4 - диапазон, в котором будут сгенерированы веса нейросети перед началом обучения
-5 - количество итераций обратного распространения ошибки с применением поправок к весам
-В данном проекте нейросеть была создана вызовом конструктора со следующими параметрами
+The classifier constructor accepts several parameters: 
+1 - number of layers
+2 - list with the sizes of layers starting from the output and ending with the input
+3 - learning rate (step of gradient descent)
+4 - the range in which the weights of the neural network will be generated before the start of training
+5 - the number of iterations of back propagation of the error with the application of corrections to the weights
+In this project, the neural network was created by calling the constructor with the following parameters
 
     classifier cl(4, { 5, 50, 500, 2500 }, 1.0, 1.0, 8);
     
-Данная нейронная сеть имеет 4 слоя 5 х 50 х 500 х 2500, learning rate = 1, начальные веса нейросети сгенерированы в диапазоне (-1; 1) и при обучении будет пройдено 8 эпох.
+This neural network has 4 layers 5 x 50 x 500 x 2500, learning rate = 1, the initial weights of the neural network are generated in the range (-1; 1) and 8 epochs will be passed during training.
 
-Для загрузки дата сета используется метод classifier::selection_load(dataset), Дата сет должен быть представлен в виде структуры
+To load the date set, the classifier::selection_load(dataset) method is used, the Date set must be represented as a structure
 dataset.
 
     struct dataset
@@ -57,34 +63,33 @@ dataset.
         std::vector<std::vector<int>> marks;
     };
     
-Вектор data хранит все изображения дата сета в виде одномерного массива, в котором значения интенсивности пикселей каждого изображения записаны одно за другим (изображения должны быть чёрнобелыми). 
-В size_for_one_letter хранится количество обучающих примеров на один класс, в letters_number хранится количество классов, в immage_size хранится количество пикселей в одном изображении, а в векторе marks хранятся метки обучающей выборки в виде двумерного массива, размер одной метки равен размеру выходного слоя, в данном проекте это 5, а количество меток равно letters_number * size_for_one_letter.
+The data vector stores all the images of the date set as a one-dimensional array in which the pixel intensity values of each image are recorded one by one (the images must be black and white). 
+size_for_one_letter stores the number of training examples per class, letters_number stores the number of classes, immage_size stores the number of pixels in one image, and the marks vector stores the labels of the training sample as a two-dimensional array, the size of one label is equal to the size of the output layer, in this project it is 5, and the number of labels is letters_number * size_for_one_letter.
 
-Формат метки:
+Label format:
 
-Все значения метки равны нулю, а значение, номер которого совпадает с классом, к которому принадлежит изображение равно единице.
-Например, если 24 изображение в дата сете принадлежит 3 классу, а всего классов 5, то 24 метка будет выглядеть вот так - {0, 0, 1, 0, 0}.
+All label values are zero, and the value whose number matches the class to which the image belongs is equal to one.
+For example, if the 24 image in the data set belongs to the 3rd class, and there are 5 classes in total, then the 24 label will look like this - {0, 0, 1, 0, 0}.
 
-Для обучения нужно просто вызвать метод classifier::learn().
+To learn, you just need to call the classifier::learn() method.
 
-Проверить точность обучения на обучающей выборке можно вызвать метод classifier::accuracy_test_on_dataset(). В консоль будет выведен результат классификации элементов датасета, для каждого элемента будет выведен 0, есди классификация выполнена неправильно или 1, если классификация выполнена правильно, а также будет выведена общая точность классификации по всему дата сету. Идеальный результат теста на дата сете выглядит вот так
-![Скриншот 20-01-2023 220843 — копия](https://user-images.githubusercontent.com/71639489/213861107-25707bbb-ac91-4760-8c1b-8fc7ee49244d.jpg)
-
-
-А для классификации нового изображения с помощью обученной нейросети используется метод classifyer::classify(std::vector<int>::iterator immage), который принимает на вход итератор вектора входного изображения, представленного в виде одномерного массива, длина которого равна размеру входного слоя нейросети (по аналогии с форматом dataset), а возвращает номер класса, который ему присвоила нейросеть.
+To check the accuracy of training on a training sample, you can call the classifier::accuracy_test_on_dataset() method. The result of the classification of the dataset elements will be output to the console, 0 will be output for each element if the classification is performed incorrectly or 1 if the classification is performed correctly, and the overall classification accuracy for the entire data set will also be output. The perfect test result on a date set looks like this
+![Screenshot 20-01-2023 220843 — копия](https://user-images.githubusercontent.com/71639489/213861107-25707bbb-ac91-4760-8c1b-8fc7ee49244d.jpg)
 
 
-# Использование
-Если вы работаете с Visual Studio, для запуска проекта требуется только клонировать данный репозиторий, установить тип конфигурации Release x86 и выполнить сборку, графическая библиотека SFML Graphics, которая используется в проекте для рукописного ввода символов включена в проект, и подключать её не требуется.
+And to classify a new image using a trained neural network, the classifyer::classify(std) method is used::vector<int>::iterator immage), which takes as input an iterator of the vector of the input image, represented as a one-dimensional array, the length of which is equal to the size of the input layer of the neural network (by analogy with the dataset format), and returns the class number assigned to it by the neural network.
 
-Пользователю предлагается самостоятельно создать  датасет, для этого во всплывающих окнах размером 300 Х 300 нужно мышкой, зажав ЛКМ, нарисовать по одной букве. Когда буква нарисована, нужно закрыть всплывающее окно, окно для следующей буквы откроется само. Классов букв всего 5, для каждого класса рекомендуется нарисовать хотя бы по 10 букв. Пример нарисованной буквы во всплывающем оке прелставлен на рисунке ниже.
+
+# Project launch
+If you are working with Visual Studio, clone this repository to launch the project, set the Release x86 configuration type and build, after the first build, messages about the absence of the necessary DLL files will be displayed, copy the contents of the Letter_classifier\Letter_classifier\DLL-files folder to Letter_classifier\Release and build again - the project should start. The SFML Graphics library, which is used in the project for handwriting characters, is included in the project, and it does not need to be connected.
+
+The user is invited to create a dataset on his own, to do this, in pop-up windows with a size of 300 X 300, you need to draw one letter with the mouse, holding the LMB. When the letter is drawn, you need to close the pop-up window, the window for the next letter will open itself. There are only 5 letter classes, it is recommended to draw at least 10 letters for each class. An example of a drawn letter in a pop-up eye is shown in the figure below.
 
 <img src="https://user-images.githubusercontent.com/71639489/213845029-130fd1a7-5e45-417d-a472-b2c72cd772fb.jpg" width="200" height="200" /> 
 
 
-После того как обучающая выборка загружена, изображения букв сжимаются до размера 50 х 50, и изображение всей обучающей выборки будет выведено в одном окне как покозано ниже.
+After the training sample is loaded, the images of the letters are compressed to a size of 50 x 50, and the image of the entire training sample will be displayed in one window as shown below.
 
-![Скриншот 20-01-2023 220533](https://user-images.githubusercontent.com/71639489/213845135-fb501502-17f0-45cb-a42a-ac1ee3eb8cc7.jpg)
+![Screenshot 20-01-2023 220533](https://user-images.githubusercontent.com/71639489/213845135-fb501502-17f0-45cb-a42a-ac1ee3eb8cc7.jpg)
 
-Вам будет предложено сохранить дата сет в память на случай, если в следующий раз вы захотите сэкономить время на его создание. Потом методом обратного распространения ошибки обучится нейронная сеть. После чего вам будет предложено так же мышклй нарисовать по несколько тестовых примеров для каждой буквы. После загрузки тестовой выборки она будет пропущена через обученную нейросеть и вы увидите оценку точности классификации ваших тестовых букв.
-
+You will be asked to save the date set in memory in case next time you want to save time on creating it. Then the neural network will be trained by the method of back propagation of the error. After that, you will also be asked to draw a few test examples for each letter with your mouse. After loading the test sample, it will be passed through a trained neural network and you will see an assessment of the accuracy of the classification of your test letters.
