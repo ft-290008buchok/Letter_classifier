@@ -17,14 +17,14 @@ In this project, a classifier of handwritten letters is implemented. For classif
 
 # Neural Network Characteristics
 A direct propagation neural network is used for classification. The perceptron has 4 layers, the sizes of the input, first hidden, second hidden and output layers are 2500, 500, 50 and 5, respectively.
-The type of activation function is a sigmoid. The type of error function is the standard deviation. The learning algorithm is a method of error back propagation. The type of gradient descent is stochastic gradient descent.
+The type of activation function is a sigmoid. The type of error function is the Mean Squared Error. The learning algorithm is a method of error back propagation. The type of gradient descent is stochastic gradient descent.
 
     layer number =            4
     input layer size =        2500
     hidden layers sizes =     {500, 50}
     output layer size =       5
-    activation function:      f(s) = (1 + e^(-a * s))^(-1), a = 0.4
-    error function:           (x1 - t1)^2 + ... + (xn - tn)^2, x - output layer neuron out, t - output reference value, n = 5
+    activation function:      (sigmoid) f(s) = (1 + e^(-a * s))^(-1), a = 0.4
+    error function:           (MSE) (x1 - t1)^2 + ... + (xn - tn)^2, x - output layer neuron out, t - output reference value, n = 5
     learning rate =           1.0
     number of epochs =        8
     type of gradient descent: stochastic gradient descent
