@@ -4,7 +4,7 @@
 ![neural network](https://img.shields.io/badge/c++-000000?style=for-the-badge&logo=&logoColor=white)
 
 
-In this project, a classifier of handwritten letters is implemented. For classification, a neural network of direct propagation is used, training takes place according to the algorithm of reverse propagation of the error.
+In this project, a classifier of handwritten letters is implemented. For classification, a neural network of direct propagation is used, training takes place according to the algorithm of error back propagation.
 
 # Content
 ⭘ Neural Network Characteristics   
