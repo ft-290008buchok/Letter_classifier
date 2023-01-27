@@ -13,7 +13,7 @@ In this project, a classifier of handwritten letters is implemented. For classif
 ⭘ Neural Network Characteristics   
 ⭘ Accuracy   
 ⭘ Classifier module (neural network)   
-⭘ Project launch  
+⭘ Project run  
 ⭘ Support   
 
 # Neural Network Characteristics
@@ -85,7 +85,7 @@ To check the accuracy of training on a training sample, you can call the classif
 And to classify a new image using a trained neural network, the classifyer::classify(std) method is used::vector<int>::iterator immage), which takes as input an iterator of the vector of the input image, represented as a one-dimensional array, the length of which is equal to the size of the input layer of the neural network (by analogy with the dataset format), and returns the class number assigned to it by the neural network.
 
 
-# Project launch
+# Project run
 If you are working with Visual Studio, clone this repository to launch the project, set the Release x86 configuration type and build, after the first build, messages about the absence of the necessary DLL files will be displayed, copy the contents of the Letter_classifier\Letter_classifier\DLL-files folder to Letter_classifier\Release and build again - the project should start. The SFML Graphics library, which is used in the project for handwriting characters, is included in the project, and it does not need to be connected.
 
 The user is invited to create a dataset on his own, to do this, in pop-up windows with a size of 300 X 300, you need to draw one letter with the mouse, holding the LMB. When the letter is drawn, you need to close the pop-up window, the window for the next letter will open itself. There are only 5 letter classes, it is recommended to draw at least 10 letters for each class. An example of a drawn letter in a pop-up eye is shown in the figure below.
