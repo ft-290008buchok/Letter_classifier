@@ -82,7 +82,7 @@ To check the accuracy of training on a training sample, you can call the classif
 ![Screenshot 20-01-2023 220843 — копия](https://user-images.githubusercontent.com/71639489/213861107-25707bbb-ac91-4760-8c1b-8fc7ee49244d.jpg)
 
 
-And to classify a new image using a trained neural network, the classifyer::classify(std) method is used::vector<int>::iterator immage), which takes as input an iterator of the vector of the input image, represented as a one-dimensional array, the length of which is equal to the size of the input layer of the neural network (by analogy with the dataset format), and returns the class number assigned to it by the neural network.
+And to classify a new image using a trained neural network, the classifyer::classify(std::vector::iterator immage) is used, which takes as input an iterator of the vector of the input image, represented as a one-dimensional array, the length of which is equal to the size of the input layer of the neural network (by analogy with the dataset format), and returns the class number assigned to it by the neural network.
 
 
 # Project run
