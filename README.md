@@ -12,7 +12,7 @@ In this project, a classifier of handwritten letters is implemented. For classif
 # Table of contents
 ⭘ Neural Network Characteristics   
 ⭘ Accuracy   
-⭘ Neural network module classifier   
+⭘ Classifier module (neural network)   
 ⭘ Project launch  
 ⭘ Support   
 
@@ -37,7 +37,7 @@ After training on a data set of 75 Latin letters A, B, C, D, E (15 for each clas
     Classification of the test sample - accuracy 92 %
 
 
-# Classifier neural network module
+# Classifier module (neural network)
 It is a mini frame work for creating and training a neural network by the method of error back propagation with stochastic gradient descent for the C++ language.
 
 The classifier module is designed for designing a neural network with any number of layers of any size and can be used in other projects.You can find the header file and the classifier implementation file in the project files.
