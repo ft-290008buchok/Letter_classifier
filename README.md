@@ -55,7 +55,7 @@ In this project, the neural network was created by calling the constructor with 
     
 This neural network has 4 layers 5 x 50 x 500 x 2500, learning rate = 1, the initial weights of the neural network are generated in the range (-1; 1) and 8 epochs will be passed during training, and sigmoid looks like f(s) = (1 + e^(-0.4 * s))^(-1).   
 
-To load the date set, the classifier::selection_load(dataset) method is used, the Date set must be represented as a structure
+To load the data set, the classifier::selection_load(dataset) method is used, the data set must be represented as a structure
 dataset.
 
     struct dataset
