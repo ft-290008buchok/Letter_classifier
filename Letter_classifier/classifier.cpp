@@ -142,7 +142,6 @@ void classifier::learn()
                 im[k] = DATA.data[i];
 
             _loop(im.begin());
-            _calc_error_function(numbers[n]);
             _calc_amendments(numbers[n]);
             _apply_amendments();
         }
