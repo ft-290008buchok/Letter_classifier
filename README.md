@@ -37,6 +37,9 @@ After training on a data set of 75 Latin letters A, B, C, D, E (15 for each clas
     Classification of the test sample - accuracy 92 %
 
 By default, a dataset of 250 letters (50 for each class) is loaded into the project, it gives even higher accuracy on tests.
+
+![dataset](https://user-images.githubusercontent.com/71639489/215999343-83de878d-18b2-4d27-a802-c67bc5f7cd36.png)
+
 # 
 For more information about the module that was used to train the neural network, you can read the `Classifier module (neural network)` section or click [here](https://github.com/ft-290008buchok/SNN).
 # 
