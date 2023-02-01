@@ -1,9 +1,12 @@
-![Скриншот 24-01-2023 123526 — копия](https://user-images.githubusercontent.com/71639489/214236017-ce64e0e6-d1fc-4071-9af7-34db4d049bbf.jpg)
+
+<p align="center">
+    <img width="400" src="https://user-images.githubusercontent.com/71639489/216007037-d02fcf1d-0c67-48e8-a095-134610dd3885.jpg">
+</p>
 
 
 # A handwritten letter classifier based on a neural network in C++
-![neural network](https://img.shields.io/badge/neuralnetwork-000000?style=for-the-badge&logo=&logoColor=white)
-![neural network](https://img.shields.io/badge/errorBackPropagation-000000?style=for-the-badge&logo=&logoColor=white)
+![neural network](https://img.shields.io/badge/neural_network-000000?style=for-the-badge&logo=&logoColor=white)
+![neural network](https://img.shields.io/badge/error_Back_Propagation-000000?style=for-the-badge&logo=&logoColor=white)
 ![neural network](https://img.shields.io/badge/c++-000000?style=for-the-badge&logo=&logoColor=white)
 
 
@@ -12,6 +15,8 @@ In this project, a classifier of handwritten letters is implemented. For classif
 # Table of contents
 ⭘ Neural Network Characteristics   
 ⭘ Accuracy   
+⭘ Dataset   
+⭘ Useful links   
 ⭘ Classifier module (neural network)   
 ⭘ Project run  
 ⭘ Support   
@@ -31,14 +36,19 @@ The type of activation function is a sigmoid. The type of error function is the 
     type of gradient descent: stochastic gradient descent
   
 # Accuracy
-After training on a data set of 75 Latin letters A, B, C, D, E (15 for each class) and testing on a sample of 25 letters (5 for each class):
+After training on a dataset of 75 Latin letters A, B, C, D, E (15 for each class) and testing on a sample of 25 letters (5 for each class):
 
     Classification of the training sample - accuracy 100 %
     Classification of the test sample - accuracy 92 %
 
-# 
+# Dataset
+By default, a dataset of 250 letters (50 for each class) is loaded into the project, it gives even higher accuracy on tests.
+
+![dataset](https://user-images.githubusercontent.com/71639489/215999343-83de878d-18b2-4d27-a802-c67bc5f7cd36.png)
+
+# Useful links
 For more information about the module that was used to train the neural network, you can read the `Classifier module (neural network)` section or click [here](https://github.com/ft-290008buchok/SNN).
-# 
+
 # Classifier module (neural network)
 It is a mini frame work for creating and training a neural network by the method of error back propagation with stochastic gradient descent for the C++ language.
 
@@ -91,6 +101,9 @@ And to classify a new image using a trained neural network, the classifyer::clas
 If you are working with Visual Studio, clone this repository to launch the project, set the Release x86 configuration type and build, after the first build, messages about the absence of the necessary DLL files will be displayed, copy the contents of the Letter_classifier\Letter_classifier\DLL-files folder to Letter_classifier\Release and build again - the project should start. The SFML Graphics library, which is used in the project for handwriting characters, is included in the project, and it does not need to be connected.
 
 The user is invited to create a dataset on his own, to do this, in pop-up windows with a size of 300 X 300, you need to draw one letter with the mouse, holding the LMB. When the letter is drawn, you need to close the pop-up window, the window for the next letter will open itself. There are only 5 letter classes, it is recommended to draw at least 10 letters for each class. An example of a drawn letter in a pop-up eye is shown in the figure below.
+# 
+By default, a dataset of 250 letters (50 for each class) is loaded into the project.
+# 
 
 <img src="https://user-images.githubusercontent.com/71639489/213845029-130fd1a7-5e45-417d-a472-b2c72cd772fb.jpg" width="200" height="200" /> 
 
