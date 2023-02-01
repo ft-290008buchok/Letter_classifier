@@ -17,7 +17,7 @@ public:
 class classifier
 {
 public:
-	classifier(int numder_of_layers, std::initializer_list<int> sizes, double _learning_rate, double _initial_weights_range, int _learning_iterations_num, double _sigmoid_steepness);
+	classifier(int numder_of_layers, std::initializer_list<int> sizes, double _learning_rate, double _initial_weights_range, int _learning_iterations_num, double _sigmoid_steepness, double _lr_multiplier);
 	void selection_load(dataset data);
 	void train_loop(int learning_vector_number);
 	void learn();
@@ -28,6 +28,7 @@ private:
 	double initial_weights_range = 0;
 	double sigmoid_steepness = 0.4;
 	int layer_quantity = 0;
+	double lr_multiplier = 1;
 	int learning_iterations_num = 0;
 	std::vector<int> layer_sizes;
 	std::vector<std::vector<std::vector<double>>> weights;

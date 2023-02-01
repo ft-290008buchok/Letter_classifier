@@ -1,12 +1,13 @@
 #include "classifier.h"
 
-classifier::classifier(int numder_of_layers, std::initializer_list<int> sizes, double _learning_rate, double _initial_weights_range, int _learning_iterations_num, double _sigmoid_steepness)
+classifier::classifier(int numder_of_layers, std::initializer_list<int> sizes, double _learning_rate, double _initial_weights_range, int _learning_iterations_num, double _sigmoid_steepness, double _lr_multiplier)
 {
     learning_rate = _learning_rate;
     initial_weights_range = _initial_weights_range;
     layer_quantity = numder_of_layers;
     learning_iterations_num = _learning_iterations_num;
     sigmoid_steepness = _sigmoid_steepness;
+    lr_multiplier = _lr_multiplier;
     for (auto size : sizes)
         layer_sizes.push_back(size);
 
@@ -145,7 +146,7 @@ void classifier::learn()
             _calc_amendments(numbers[n]);
             _apply_amendments();
         }
-        learning_rate *= 0.9;
+        learning_rate *= lr_multiplier;
     }
 }
 
