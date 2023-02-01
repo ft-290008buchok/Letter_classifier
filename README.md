@@ -61,11 +61,12 @@ The classifier constructor accepts several parameters:
 4 - the range in which the weights of the neural network will be generated before the start of training   
 5 - the number of epochs   
 6 - slope of the sigmoid   
+7 - learning rate multiplier   
 In this project, the neural network was created by calling the constructor with the following parameters   
 
-    classifier cl(4, { 5, 50, 500, 2500 }, 1.0, 1.0, 8, 0.4);
+    classifier cl(4, { 5, 50, 500, 2500 }, 1.0, 1.0, 8, 0.4, 0.9);
     
-This neural network has 4 layers 5 x 50 x 500 x 2500, learning rate = 1, the initial weights of the neural network are generated in the range (-1; 1) and 8 epochs will be passed during training, and sigmoid looks like f(s) = (1 + e^(-0.4 * s))^(-1).   
+This neural network has 4 layers 5 x 50 x 500 x 2500, learning rate = 1, the initial weights of the neural network are generated in the range (-1; 1) and 8 epochs will be passed during training, sigmoid looks like f(s) = (1 + e^(-0.4 * s))^(-1), and at each new epoch, learning rate is multiplied by 0.9, the last parameter is needed for a more accurate and faster gradient descent, but you can set it to 1, then the learning rate will be constant.   
 
 To load the data set, the classifier::selection_load(dataset) method is used, the data set must be represented as a structure
 dataset.
