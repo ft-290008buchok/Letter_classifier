@@ -7,7 +7,8 @@ using namespace sf;
 int main()
 {
     srand(time(NULL));
-    
+
+    // Calling the neural network class constructor
     classifier cl(4, { 5, 50, 500, 2500 }, 1.0, 1.0, 8, 0.4);
 
     dataset LEARNING_DATA = load_dataset();
