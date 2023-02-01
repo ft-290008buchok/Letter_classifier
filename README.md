@@ -36,7 +36,9 @@ After training on a data set of 75 Latin letters A, B, C, D, E (15 for each clas
     Classification of the training sample - accuracy 100 %
     Classification of the test sample - accuracy 92 %
 
-
+# 
+For more information about the module that was used to train the neural network, you can read the `Classifier module (neural network)` section or click [here](https://github.com/ft-290008buchok/SNN).
+# 
 # Classifier module (neural network)
 It is a mini frame work for creating and training a neural network by the method of error back propagation with stochastic gradient descent for the C++ language.
 
@@ -99,4 +101,4 @@ After the training sample is loaded, the images of the letters are compressed to
 
 You will be asked to save the date set in memory in case next time you want to save time on creating it. Then the neural network will be trained by the method of back propagation of the error. After that, you will also be asked to draw a few test examples for each letter with your mouse. After loading the test sample, it will be passed through a trained neural network and you will see an assessment of the accuracy of the classification of your test letters.
 # Support
-We all need support and motivation. TryShape is not an exception. Please give this project a ⭐️ to encourage and show that you liked it. Don't forget to leave a star ⭐️ before you move away.
+We all need support and motivation. Letter Classifier is not an exception. Please give this project a ⭐️ to encourage and show that you liked it. Don't forget to leave a star ⭐️ before you move away.
