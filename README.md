@@ -36,7 +36,9 @@ After training on a data set of 75 Latin letters A, B, C, D, E (15 for each clas
     Classification of the training sample - accuracy 100 %
     Classification of the test sample - accuracy 92 %
 
-
+# 
+For more information about the module that was used to train the neural network, you can read the `Classifier module (neural network)` section or click [here](https://github.com/ft-290008buchok/SNN).
+# 
 # Classifier module (neural network)
 It is a mini frame work for creating and training a neural network by the method of error back propagation with stochastic gradient descent for the C++ language.
 
