@@ -1,4 +1,7 @@
-![Скриншот 24-01-2023 123526 — копия](https://user-images.githubusercontent.com/71639489/214236017-ce64e0e6-d1fc-4071-9af7-34db4d049bbf.jpg)
+
+<p align="center">
+    <img width="400" src="https://user-images.githubusercontent.com/71639489/216007037-d02fcf1d-0c67-48e8-a095-134610dd3885.jpg">
+</p>
 
 
 # A handwritten letter classifier based on a neural network in C++
