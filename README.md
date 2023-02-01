@@ -12,6 +12,8 @@ In this project, a classifier of handwritten letters is implemented. For classif
 # Table of contents
 ⭘ Neural Network Characteristics   
 ⭘ Accuracy   
+⭘ Dataset   
+⭘ Useful links   
 ⭘ Classifier module (neural network)   
 ⭘ Project run  
 ⭘ Support   
@@ -31,18 +33,19 @@ The type of activation function is a sigmoid. The type of error function is the 
     type of gradient descent: stochastic gradient descent
   
 # Accuracy
-After training on a data set of 75 Latin letters A, B, C, D, E (15 for each class) and testing on a sample of 25 letters (5 for each class):
+After training on a dataset of 75 Latin letters A, B, C, D, E (15 for each class) and testing on a sample of 25 letters (5 for each class):
 
     Classification of the training sample - accuracy 100 %
     Classification of the test sample - accuracy 92 %
 
+# Dataset
 By default, a dataset of 250 letters (50 for each class) is loaded into the project, it gives even higher accuracy on tests.
 
 ![dataset](https://user-images.githubusercontent.com/71639489/215999343-83de878d-18b2-4d27-a802-c67bc5f7cd36.png)
 
-# 
+# Useful links
 For more information about the module that was used to train the neural network, you can read the `Classifier module (neural network)` section or click [here](https://github.com/ft-290008buchok/SNN).
-# 
+
 # Classifier module (neural network)
 It is a mini frame work for creating and training a neural network by the method of error back propagation with stochastic gradient descent for the C++ language.
 
