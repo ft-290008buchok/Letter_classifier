@@ -5,8 +5,8 @@
 
 
 # A handwritten letter classifier based on a neural network in C++
-![neural network](https://img.shields.io/badge/neuralnetwork-000000?style=for-the-badge&logo=&logoColor=white)
-![neural network](https://img.shields.io/badge/errorBackPropagation-000000?style=for-the-badge&logo=&logoColor=white)
+![neural network](https://img.shields.io/badge/neural_network-000000?style=for-the-badge&logo=&logoColor=white)
+![neural network](https://img.shields.io/badge/error_Back_Propagation-000000?style=for-the-badge&logo=&logoColor=white)
 ![neural network](https://img.shields.io/badge/c++-000000?style=for-the-badge&logo=&logoColor=white)
 
 
