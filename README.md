@@ -36,6 +36,7 @@ After training on a data set of 75 Latin letters A, B, C, D, E (15 for each clas
     Classification of the training sample - accuracy 100 %
     Classification of the test sample - accuracy 92 %
 
+By default, a dataset of 250 letters (50 for each class) is loaded into the project, it gives even higher accuracy on tests.
 # 
 For more information about the module that was used to train the neural network, you can read the `Classifier module (neural network)` section or click [here](https://github.com/ft-290008buchok/SNN).
 # 
@@ -91,6 +92,9 @@ And to classify a new image using a trained neural network, the classifyer::clas
 If you are working with Visual Studio, clone this repository to launch the project, set the Release x86 configuration type and build, after the first build, messages about the absence of the necessary DLL files will be displayed, copy the contents of the Letter_classifier\Letter_classifier\DLL-files folder to Letter_classifier\Release and build again - the project should start. The SFML Graphics library, which is used in the project for handwriting characters, is included in the project, and it does not need to be connected.
 
 The user is invited to create a dataset on his own, to do this, in pop-up windows with a size of 300 X 300, you need to draw one letter with the mouse, holding the LMB. When the letter is drawn, you need to close the pop-up window, the window for the next letter will open itself. There are only 5 letter classes, it is recommended to draw at least 10 letters for each class. An example of a drawn letter in a pop-up eye is shown in the figure below.
+# 
+By default, a dataset of 250 letters (50 for each class) is loaded into the project.
+# 
 
 <img src="https://user-images.githubusercontent.com/71639489/213845029-130fd1a7-5e45-417d-a472-b2c72cd772fb.jpg" width="200" height="200" /> 
 
